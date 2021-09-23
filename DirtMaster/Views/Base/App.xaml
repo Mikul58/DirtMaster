@@ -4,12 +4,22 @@
              x:Class="DirtMaster.App">
     <Application.Resources>
         <!--#region Label Styles-->
-        <Style x:Key="BasicStyle" TargetType="Label">
+        <Style TargetType="Label">
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="FontSize" Value="45"/>
             <Setter Property="FontFamily" Value="revolutiongothic.otf#revolutiongothic"/>
         </Style>
 
+        <!--#endregion-->
+        
+        <!--#region Default/LoginRegisterEntry-->
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="revolutiongothic.otf#revolutiongothic"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
         <!--#endregion-->
         
         <!--#region logo-->
@@ -24,12 +34,12 @@
             <Setter Property="FontFamily" Value="Helvetica Black.ttf#Helvetica Black"/>
             <Setter Property="TextColor" Value="White"/>
         </Style>
-        <Style x:Key="LogoMaster" TargetType="Label" BasedOn="{StaticResource BasicStyle}">
+        <Style x:Key="LogoMaster" TargetType="Label">
             <Setter Property="Text" Value="MASTER"/>
             <Setter Property="FontSize" Value="40"/>
             <Setter Property="TextColor" Value="#e70d32"/>
         </Style>
-        <Style x:Key="Logo1" TargetType="Label" BasedOn="{StaticResource BasicStyle}">
+        <Style x:Key="Logo1" TargetType="Label">
             <Setter Property="Text" Value="1.0"/>
             <Setter Property="FontSize" Value="40"/>
         </Style>
@@ -38,8 +48,7 @@
         
         <!--#region Frame Styles-->
         
-        <Style x:Key="FrameStyle" TargetType="Label"
-               BasedOn="{StaticResource BasicStyle}">
+        <Style x:Key="FrameStyle" TargetType="Label">
             <Setter Property="VerticalOptions" Value="End"/>
             <Setter Property="Margin" Value="10"/>
         </Style>
@@ -78,7 +87,15 @@
         
         <!--#endregion-->
         
-        <!--#region Button Style-->
+        <!--#region Bottom Button Style-->
+        <Style TargetType="Button">
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="BackgroundColor" Value="#f70e32"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontFamily" Value="revolutiongothic.otf#revolutiongothic"/>
+        </Style>
+        <!--#endregion-->
         
         <!--#region Back Button Style-->
         <Style x:Key="BackButtonStyle" TargetType="Button">

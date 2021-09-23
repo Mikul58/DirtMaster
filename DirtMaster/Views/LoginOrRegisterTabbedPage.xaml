@@ -5,12 +5,14 @@
             x:Class="DirtMaster.Views.LoginOrRegisterTabbedPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.IsSmoothScrollEnabled="false"
             BarTextColor="White"
             BarBackgroundColor="Black"
             SelectedTabColor="White"
             UnselectedTabColor="White"
+            Visual="Material"
             >
     <!--Pages can be added as references or inline-->
     <pages:LoginPage Title="Login" IconImageSource="login.ico"/>
-    <ContentPage Title="Register" IconImageSource="adduser.ico"/>
+    <pages:RegisterPage Title="Register" IconImageSource="adduser.ico"/>
 </TabbedPage>

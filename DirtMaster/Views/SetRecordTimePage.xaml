@@ -45,7 +45,7 @@
                         </Entry.Triggers>
                     </Entry>
                 </StackLayout>
-                <Button Text="SUBMIT" Grid.Row="7" Grid.ColumnSpan="2" CornerRadius="10" IsEnabled="False" BackgroundColor="#e70d32" TextColor="White" FontSize="28" FontFamily="revolutiongothic.otf#revolutiongothic">
+                <Button Text="SUBMIT" Grid.Row="7" Grid.ColumnSpan="2"  IsEnabled="False">
                     <Button.Triggers>
                         <DataTrigger TargetType="Button" Binding="{Binding IsValid}" Value="True">
                             <Setter Property="IsEnabled" Value="True"/>
