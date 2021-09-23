@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:DirtMaster.ViewModels"
+             x:Class="DirtMaster.Views.SetRecordTimePage"
+             x:DataType="viewmodels:SetRecordTimeViewModel"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Content>
+        <RelativeLayout>
+            <Image Source="dirt.jpg" Aspect="Fill" Opacity="0.7"/>
+            <Grid Style="{StaticResource GridRelativeToParent}">
+                <StackLayout Style="{StaticResource Logo}">
+                    <Label Style="{StaticResource LogoDirt}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Style="{StaticResource LogoMaster}"/>
+                        <Label Style="{StaticResource Logo1}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="7">
+                    <Button Style="{StaticResource BackButtonStyle}" Command="{Binding PopNavigationCommand}"/>
+                    <Rectangle HeightRequest="50"/>
+                    <Label Text="CHOSEN TRACK" Style="{StaticResource BasicStyle}"  TextColor="White" FontSize="36" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Rectangle HeightRequest="20"/>
+                    <Label Text="{Binding CurrentRegion.RegionName}" Style="{StaticResource BasicStyle}" TextColor="White" FontSize="36" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Rectangle HeightRequest="2" BackgroundColor="#f70e32"/>
+                    <Label Text="{Binding CurrentTrack.TrackName}" Style="{StaticResource BasicStyle}" TextColor="White" FontSize="36" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Rectangle HeightRequest="20"/>
+                    <Label Text="YOUR TIME:" Style="{StaticResource BasicStyle}" TextColor="White" FontSize="36" HorizontalTextAlignment="Center"/>
+                    <Entry Style="{StaticResource BasicStyle}" FontSize="36" Text="{Binding Time}" ReturnCommand="{Binding SetSubmitButtonCommand}" Placeholder="00:00.000" PlaceholderColor="White" HorizontalTextAlignment="Center" Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <xct:MaskedBehavior Mask="XX:XX.XXX" UnMaskedCharacter="X"/>
+                            <xct:NumericValidationBehavior MaximumDecimalPlaces="0"/>
+                            <xct:UserStoppedTypingBehavior Command="{Binding SetSubmitButtonCommand}"/>
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger TargetType="Entry" Binding="{Binding IsValid}" Value="True">
+                                <Setter Property="TextColor" Value="#3cd58c"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Entry" Binding="{Binding IsValid}" Value="False">
+                                <Setter Property="TextColor" Value="#f70e32"/>
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                </StackLayout>
+                <Button Text="SUBMIT" Grid.Row="7" Grid.ColumnSpan="2" CornerRadius="10" IsEnabled="False" BackgroundColor="#e70d32" TextColor="White" FontSize="28" FontFamily="revolutiongothic.otf#revolutiongothic">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding IsValid}" Value="True">
+                            <Setter Property="IsEnabled" Value="True"/>
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+            </Grid>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

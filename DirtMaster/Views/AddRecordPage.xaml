@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:DirtMaster.Models" xmlns:viewmodels="clr-namespace:DirtMaster.ViewModels"
+             x:Class="DirtMaster.Views.AddRecordPage"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False"
+             x:DataType="viewmodels:AddRecordViewModel"
+             >
+    <ContentPage.Content>
+        <RelativeLayout>
+            <Image Source="dirt.jpg" Aspect="Fill" Opacity="0.7"/>
+            <Grid Style="{StaticResource GridRelativeToParent}">
+                <StackLayout Style="{StaticResource Logo}">
+                    <Label Style="{StaticResource LogoDirt}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Style="{StaticResource LogoMaster}"/>
+                        <Label Style="{StaticResource Logo1}"/>
+                    </StackLayout>
+                </StackLayout>
+                <Button Style="{StaticResource BackButtonStyle}" Command="{Binding ReturnToMainPageCommand}"/>
+                <CarouselView ItemsSource="{Binding Regions}" 
+                              CurrentItem="{Binding CurrentRegion}"
+                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                              HorizontalOptions="Center" VerticalOptions="Center" 
+                              EmptyView="No items to display." BackgroundColor="Transparent"
+                              Margin="10">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate x:DataType="models:RegionModel">
+                            <Label Text="{Binding RegionName}" Style="{StaticResource BasicStyle}" TextColor="White" FontSize="44" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" MaxLines="2" LineBreakMode="NoWrap"/>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <CarouselView ItemsSource="{Binding CurrentTrackList}"
+                              CurrentItem="{Binding CurrentTrack}"                 
+                              VerticalOptions="Center"
+                              HorizontalOptions="Center"
+                              PeekAreaInsets="190"
+                              Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout SnapPointsAlignment="Center"
+                                           SnapPointsType="Mandatory"
+                                           Orientation="Vertical"/>
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate x:DataType="models:TrackModel">
+                            <Label Text="{Binding TrackName}" Style="{StaticResource BasicStyle}" TextColor="White" FontSize="38" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup>
+                                        <VisualState x:Name="CurrentItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Scale"
+                                                        Value="1"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="PreviousItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Scale"
+                                                        Value="0.8"/>
+                                                <Setter Property="Opacity"
+                                                        Value="0.65"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="NextItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Scale"
+                                                        Value="0.8"/>
+                                                <Setter Property="Opacity"
+                                                        Value="0.65"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="DefaultItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Scale"
+                                                        Value="0.6"/>
+                                                <Setter Property="Opacity"
+                                                        Value="0.35"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Label>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <Button Command="{Binding NavigateToSetRecordTimeCommand}" Text="SELECT" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="10" BackgroundColor="#f70e32" TextColor="White" FontSize="28" FontFamily="revolutiongothic.otf#revolutiongothic"/>
+            </Grid>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DirtMaster.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="Black"
+              Offset="0.0" />
+                    <GradientStop Color="#113C43" Offset="0.5"/>
+                    <GradientStop Color="Black"
+              Offset="1.0" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <StackLayout Style="{StaticResource Logo}">
+                <Label Style="{StaticResource LogoDirt}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Style="{StaticResource LogoMaster}"/>
+                    <Label Style="{StaticResource Logo1}"/>
+                </StackLayout>
+            </StackLayout>
+            <Label Text="LOGIN PAGE!"
+                   FontSize="50"
+                   TextColor="White"
+                   FontFamily="revolutiongothic.otf#revolutiongothic"
+                HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

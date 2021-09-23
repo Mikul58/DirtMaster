@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DirtMaster.App">
+    <Application.Resources>
+        <!--#region Label Styles-->
+        <Style x:Key="BasicStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="45"/>
+            <Setter Property="FontFamily" Value="revolutiongothic.otf#revolutiongothic"/>
+        </Style>
+
+        <!--#endregion-->
+        
+        <!--#region logo-->
+        <Style x:Key="Logo" TargetType="StackLayout">
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Spacing" Value="-20"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+        <Style x:Key="LogoDirt" TargetType="Label">
+            <Setter Property="Text" Value="DIRT"/>
+            <Setter Property="FontSize" Value="62"/>
+            <Setter Property="FontFamily" Value="Helvetica Black.ttf#Helvetica Black"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+        <Style x:Key="LogoMaster" TargetType="Label" BasedOn="{StaticResource BasicStyle}">
+            <Setter Property="Text" Value="MASTER"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="TextColor" Value="#e70d32"/>
+        </Style>
+        <Style x:Key="Logo1" TargetType="Label" BasedOn="{StaticResource BasicStyle}">
+            <Setter Property="Text" Value="1.0"/>
+            <Setter Property="FontSize" Value="40"/>
+        </Style>
+        
+        <!--#endregion-->
+        
+        <!--#region Frame Styles-->
+        
+        <Style x:Key="FrameStyle" TargetType="Label"
+               BasedOn="{StaticResource BasicStyle}">
+            <Setter Property="VerticalOptions" Value="End"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        
+        <!--#endregion-->
+        
+        <!--#region Grid Styles-->
+        
+        <Style x:Key="GridRelativeToParent" TargetType="Grid">
+            <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>
+            <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+            <Setter Property="Margin" Value="20"/>
+
+            <Setter Property="Grid.RowDefinitions">
+                <Setter.Value>
+                    <RowDefinitionCollection>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </RowDefinitionCollection>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Grid.ColumnDefinitions">
+                <Setter.Value>
+                    <ColumnDefinitionCollection>
+                        <ColumnDefinition Width=".7*"/>
+                        <ColumnDefinition Width="*"/>
+                    </ColumnDefinitionCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--#endregion-->
+        
+        <!--#region Button Style-->
+        
+        <!--#region Back Button Style-->
+        <Style x:Key="BackButtonStyle" TargetType="Button">
+            <Setter Property="Text" Value="BACK "/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="FontFamily" Value="revolutiongothic.otf#revolutiongothic"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="BackgroundColor" Value="#e70d32"/>
+        </Style>
+        <!--#endregion-->
+        
+        <!--#endregion-->
+    </Application.Resources>
+</Application>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:DirtMaster.ViewModels" x:DataType="viewmodels:MainPageViewModel"
+             x:Class="DirtMaster.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Content>
+        <RelativeLayout>
+            <Image Source="dirt.jpg" Aspect="Fill"/>
+            <Grid Style="{StaticResource GridRelativeToParent}">               
+                <StackLayout Style="{StaticResource Logo}">
+                    <Label Style="{StaticResource LogoDirt}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Style="{StaticResource LogoMaster}"/>
+                        <Label Style="{StaticResource Logo1}"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <Frame Grid.Row="2" Grid.Column="0" Padding="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <Grid>
+                        <Image Source="https://www.wyborkierowcow.pl/wp-content/uploads/2019/02/dirt-rally-2-_-1.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand"/>
+                        <Label Text="ADD RECORD" Style="{StaticResource FrameStyle}"/>
+                        <Button Command="{Binding NavigateToAddRecordCommand}" Opacity="0"/>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="4" Grid.Column="0" Padding="1" Grid.ColumnSpan="1" Grid.RowSpan="2">
+                    <Grid>
+                        <Image Source="https://reis.co.uk/wp-content/uploads/2020/03/77bf3ae4-c242-49d8-b931-b5bed1d61af3.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand"/>
+                        <Label Text="MY TIMES" Style="{StaticResource FrameStyle}"/>
+                        <Button Command="{Binding NavigateToMyTimesCommand}" Opacity="0"/>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="4" Grid.Column="1" Padding="1" Grid.ColumnSpan="1" Grid.RowSpan="2">
+                    <Grid>
+                        <Image Source="https://www.fia.com/sites/default/files/styles/content_details/public/news/main_image/01119003_123.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand"/>
+                        <Label Text="RECORDS" Style="{StaticResource FrameStyle}"/>
+                        <Button Command="{Binding NavigateToRecordsCommand}" Opacity="0"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </RelativeLayout>
+    </ContentPage.Content>
+
+</ContentPage>
+
