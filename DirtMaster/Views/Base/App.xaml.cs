@@ -1,5 +1,6 @@
 ﻿using DirtMaster.Service;
 using DirtMaster.Views;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace DirtMaster
@@ -11,11 +12,8 @@ namespace DirtMaster
         public App()
         {
             InitializeComponent();
-            if (!UserService.isUserLogged) MainPage = new LoginOrRegisterTabbedPage();
-            else
-            {
-                MainPage = new NavigationPage(new MainPage());
-            }
+            Task.Run(async () => await UserService.CreateUserAsync("sebix", "test"));
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

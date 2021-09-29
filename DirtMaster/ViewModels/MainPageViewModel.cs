@@ -27,13 +27,13 @@ namespace DirtMaster.ViewModels
         public ICommand NavigateToAddRecordCommand { get; set; }
         public ICommand NavigateToMyTimesCommand { get; set; }
         public ICommand NavigateToRecordsCommand { get; set; }
-        public ICommand NavigateToLoginPage { get; set; }
         #endregion
 
         #region Constructor
         public MainPageViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
+            if (UserService.IsUserLogged == false) Task.Run(async () => await navigation.PushAsync(new LoginPage()));
             NavigateToAddRecordCommand = new Command(async () => await Navigation.PushAsync(new AddRecordPage()));
             NavigateToMyTimesCommand = new Command(async () => await Navigation.PushAsync(new MyTimesPage()));
             NavigateToRecordsCommand = new Command(async () => await Navigation.PushAsync(new RecordsPage()));

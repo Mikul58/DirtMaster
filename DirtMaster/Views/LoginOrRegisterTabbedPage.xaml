@@ -7,7 +7,7 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             android:TabbedPage.IsSmoothScrollEnabled="false"
             BarTextColor="White"
-            BarBackgroundColor="Black"
+            BarBackgroundColor="#113C43"
             SelectedTabColor="White"
             UnselectedTabColor="White"
             Visual="Material"

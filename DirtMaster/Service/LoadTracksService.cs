@@ -21,19 +21,19 @@ namespace DirtMaster.Service
             int counter = 0;
 
             var rmAssembly = IntrospectionExtensions.GetTypeInfo(typeof(RegionModel)).Assembly;
-            Stream regionStream = rmAssembly.GetManifestResourceStream("TM.Regions.txt");
+            Stream regionStream = rmAssembly.GetManifestResourceStream("DirtMaster.Regions.txt");
 
             var tmAssembly = IntrospectionExtensions.GetTypeInfo(typeof(TrackModel)).Assembly;
-            Stream trackStream = tmAssembly.GetManifestResourceStream("TM.Tracks.txt");
+            Stream trackStream = tmAssembly.GetManifestResourceStream("DirtMaster.Tracks.txt");
 
-               using (var regionReader = new StreamReader(regionStream))
+               using ( var regionReader = new StreamReader(regionStream))
                {
-                while ((regionLine = await regionReader.ReadLineAsync()) != null)
-                {
+                    while ((regionLine = await regionReader.ReadLineAsync()) != null)
+                    {
                     counter++;
                     regionModels.Add(new RegionModel(regionLine, counter, new ObservableCollection<ITrackModel>()));
 
-                }
+                    }
                }
 
                counter = 0;
@@ -53,7 +53,7 @@ namespace DirtMaster.Service
                        }
                    }
                }
-            return regionModels;
+               return regionModels;
         }
     }
 }

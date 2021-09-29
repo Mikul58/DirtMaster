@@ -22,14 +22,14 @@
                 <StackLayout  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="7">
                     <Button Style="{StaticResource BackButtonStyle}" Command="{Binding PopNavigationCommand}"/>
                     <Rectangle HeightRequest="50"/>
-                    <Label Text="CHOSEN TRACK" Style="{StaticResource BasicStyle}"  TextColor="White" FontSize="36" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="CHOSEN TRACK"  TextColor="White" FontSize="36" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                     <Rectangle HeightRequest="20"/>
-                    <Label Text="{Binding CurrentRegion.RegionName}" Style="{StaticResource BasicStyle}" TextColor="White" FontSize="36" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="{Binding CurrentRegion.RegionName}" TextColor="White" FontSize="36" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                     <Rectangle HeightRequest="2" BackgroundColor="#f70e32"/>
-                    <Label Text="{Binding CurrentTrack.TrackName}" Style="{StaticResource BasicStyle}" TextColor="White" FontSize="36" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="{Binding CurrentTrack.TrackName}" TextColor="White" FontSize="36" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                     <Rectangle HeightRequest="20"/>
-                    <Label Text="YOUR TIME:" Style="{StaticResource BasicStyle}" TextColor="White" FontSize="36" HorizontalTextAlignment="Center"/>
-                    <Entry Style="{StaticResource BasicStyle}" FontSize="36" Text="{Binding Time}" ReturnCommand="{Binding SetSubmitButtonCommand}" Placeholder="00:00.000" PlaceholderColor="White" HorizontalTextAlignment="Center" Keyboard="Numeric">
+                    <Label Text="YOUR TIME:" TextColor="White" FontSize="36" HorizontalTextAlignment="Center"/>
+                    <Entry FontSize="36" Text="{Binding Time}" ReturnCommand="{Binding SetSubmitButtonCommand}" Placeholder="00:00.000" PlaceholderColor="White" HorizontalTextAlignment="Center" Keyboard="Numeric">
                         <Entry.Behaviors>
                             <xct:MaskedBehavior Mask="XX:XX.XXX" UnMaskedCharacter="X"/>
                             <xct:NumericValidationBehavior MaximumDecimalPlaces="0"/>

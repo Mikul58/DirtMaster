@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DirtMaster.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace DirtMaster.Views
         public LoginPage()
         {
             InitializeComponent();
+            BindingContext = new LoginViewModel(Navigation);
         }
     }
 }

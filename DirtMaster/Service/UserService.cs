@@ -12,7 +12,7 @@ namespace DirtMaster.Service
     public static class UserService
     {
         static SQLiteAsyncConnection connection;
-        public static bool isUserLogged = false;
+        public static bool IsUserLogged = false;
         static async Task Init()
         {
             if (connection == null)
@@ -23,7 +23,7 @@ namespace DirtMaster.Service
             }
         }
 
-        public static async Task CreateUser(string name, string password)
+        public static async Task CreateUserAsync(string name, string password)
         {
             await Init();
             User newUser = new User
@@ -34,16 +34,19 @@ namespace DirtMaster.Service
             await connection.InsertAsync(newUser);
         }
 
-        public static async Task ReturnUser(int id)
+        public static async Task ReturnUserAsync(int id)
         {
             await Init();
             await connection.GetAsync<User>(id);
         }
 
-        public static void CheckIfUserLogged(string name, string password)
+        public static async Task<bool> CheckIfUserValidAsync(string name, string password)
         {
-            var query = connection.Table<User>().Where(x => x.Name.Equals(name) && x.Password.Equals(password));
-            isUserLogged = Convert.ToBoolean(query);
+            await Init();
+            var query = await connection.Table<User>().FirstOrDefaultAsync(x => x.Name.Equals(name) && x.Password.Equals(password));
+            if (query == null) return false;
+            else
+                return IsUserLogged = true;
         }
     }
 }

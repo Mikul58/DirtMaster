@@ -64,34 +64,22 @@ namespace DirtMaster.ViewModels
             }
         }
 
-        private string _time = null;
-        public string Time
-        {
-            get { return _time; }
-            set
-            {
-                _time = value;
-                OnPropertyChanged();
-            }
-        }
-
         public ICommand ReturnToMainPageCommand { get; set; }
         public ICommand NavigateToSetRecordTimeCommand { get; set; }
 
         public AddRecordViewModel(INavigation navigation)
         {
             Navigation = navigation;
+            Task.Run (async () => await LoadRegions());
             ReturnToMainPageCommand = new AsyncCommand(async () => await Navigation.PopToRootAsync());
             NavigateToSetRecordTimeCommand = new AsyncCommand
                 (async () => await Navigation.PushAsync(new SetRecordTimePage(CurrentRegion, CurrentTrack)));
-            Task.Run(async () => await LoadTracksFromService());
         }
 
-        async Task LoadTracksFromService()
+        async Task LoadRegions()
         {
             Regions = await LoadTracksService.InitializeRegionsAndTracks();
         }
-
 
     }
 }
